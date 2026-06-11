@@ -2,9 +2,9 @@
 
 ## Información del Estudiante
 
-- **Nombre:** [Tu nombre completo aquí]
-- **Carrera:** [Tu carrera]
-- **Fecha de inicio:** [Fecha]
+- **Nombre:** Josue Cruz
+- **Carrera:** Desarrollo de software
+- **Fecha de inicio: 11** 11 de junio del 2026
 
 ---
 
