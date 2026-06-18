@@ -9,7 +9,7 @@ const RepoItem: React.FC<Repository> = (repository) => {
         <IonItemSliding>
             <IonItem>
                 <IonThumbnail slot='start'>
-                    <img src={repository.avatarUrl} alt={repository.name} />
+                    <img src={repository.owner.avatar_url} alt={repository.name} />
                 </IonThumbnail>
                 <IonLabel>
                     <h3>{repository.name}</h3>
@@ -18,7 +18,7 @@ const RepoItem: React.FC<Repository> = (repository) => {
                 </IonLabel>
             </IonItem>
             <IonItemOptions>
-                <IonItemOption color="warning">
+                <IonItemOption color="success">
                     <IonIcon icon={pencil} slot='icon-only' />
                 </IonItemOption>
                 <IonItemOption color="danger">
