@@ -2,7 +2,6 @@ import axios from "axios";
 import { Repository } from "../interfaces/Repository";
 import { GithubUser } from "../interfaces/GithubUser";
 
-// Asegúrate de tener esta interfaz creada o importada correctamente
 interface RepositoryPayload {
   name: string;
   description?: string;
@@ -55,6 +54,25 @@ export const fetchUserInfo = async (): Promise<GithubUser> => {
     return response.data as GithubUser;
   } catch (error) {
     console.error("Error al leer usuario", error);
+    throw new Error(`${(error as Error).message}`);
+  }
+};
+
+export const deleteRepository = async (owner: string, repoName: string): Promise<void> => {
+  try {
+    await githubClient.delete(`repos/${owner}/${repoName}`);
+  } catch (error) {
+    console.error("Error al eliminar repositorio", error);
+    throw new Error(`${(error as Error).message}`);
+  }
+};
+
+export const updateRepository = async (owner: string, repoName: string, data: RepositoryPayload): Promise<Repository> => {
+  try {
+    const response = await githubClient.patch(`repos/${owner}/${repoName}`, data);
+    return response.data as Repository;
+  } catch (error) {
+    console.error("Error al actualizar repositorio", error);
     throw new Error(`${(error as Error).message}`);
   }
 };
